@@ -5,7 +5,7 @@ const app = Vue.createApp({
             city: 'London',  // Default city
             province: 'Ontario',  // Default province
             country: 'Canada',  // Default country
-            weather: null,
+            weather:null,
             word: '',  // The word the user inputs
             wordDefinition: null
         };
@@ -34,8 +34,8 @@ const app = Vue.createApp({
                     // Store the weather data
                     this.weather = {
                         temperature: data.temperature,
-                        wind: data.wind,
-                        description: data.description,
+                        wind: data.wind_speed,
+                        description: data.weather_description,
                     };
                 })
                 .catch(error => {

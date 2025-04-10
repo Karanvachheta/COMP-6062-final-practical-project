@@ -1,0 +1,80 @@
+header{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(67, 62, 62);
+    color: white;
+}
+#border{
+    margin-top: 20px;
+    border: 1px solid black;
+}
+
+#profile, #definition{
+    background-color: rgb(172, 168, 168); 
+}
+
+#colorDef
+{
+    background-color: #baf5d1;
+}
+
+#colorPro{
+    background-color: #fff3cd;
+}
+#weatherInfo{
+    margin-top: 20px;
+    background-color: rgb(172, 168, 168);
+}
+
+#weathButt{
+    margin-top: 12px;
+}
+
+#weather-module{
+    margin-top: 20px;
+    margin-left: 350px;
+    background-color: #a9d7d6;
+}
+
+.btn-primary:hover {
+    background-color: #74b9ff;
+}
+
+.form-control{
+    margin-bottom: 7px;
+}
+
+footer{
+    margin-top: 20px;
+    background-color: rgb(67, 62, 62);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    #weather-module {
+        margin-left: 0;
+        padding: 10px;
+        background-color: white;
+    }
+
+    #colorPro, #colorDef{
+        background-color: white;
+    }
+    #profile, #definition, #weatherInfo {
+        background-color: #00cec9;
+        text-align: center;
+        padding: 10px;
+    }
+    #border{
+        border: none;
+    }
+
+    #definition{
+        margin-top: 45px;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+}
+
