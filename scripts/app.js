@@ -6,37 +6,31 @@ const app = Vue.createApp({
             province: 'Ontario',  // Default province
             country: 'Canada',  // Default country
             weather:null,
-            word: '',  // The word the user inputs
             wordDefinition: null
         };
     },
 
+    // Methods for fetching data and handling user interactions
     methods: {
         fetchRandomUserProfile() {
-            fetch('http://comp6062.liamstewart.ca/random-user-profile')
+            // Sending a request to get a random user profile
+            fetch('https://comp6062.liamstewart.ca/random-user-profile')
                 .then(response => response.json())  // Parse the response to JSON
                 .then(data => {
-                    this.userProfile = data;  // Directly assign the data (because it's already in the correct format)
+                    this.userProfile = data;  // Directly assign the data
                 });
         },
         getNewProfile() {
             this.fetchRandomUserProfile();  // Fetch a new random profile when the button is clicked
         },
 
-        getWeather() {
-            // Construct the URL with user input (city, province, country)
-            const url = `http://comp6062.liamstewart.ca/weather-information?city=${this.city}&province=${this.province}&country=${this.country}`;
-            
+        getWeather() {            
             // Fetch the weather data
-            fetch(url)
+            fetch(`https://comp6062.liamstewart.ca/weather-information?city=${this.city}&province=${this.province}&country=${this.country}`)
                 .then(response => response.json())  // Parse the response as JSON
                 .then(data => {
                     // Store the weather data
-                    this.weather = {
-                        temperature: data.temperature,
-                        wind: data.wind_speed,
-                        description: data.weather_description,
-                    };
+                    this.weather = data;
                 })
                 .catch(error => {
                     console.error('Error fetching weather:', error);
@@ -50,23 +44,13 @@ const app = Vue.createApp({
                 alert("Please enter a word!");
                 return;
             }
-
-            // Construct the URL for the dictionary API
-            const url = `https://comp6062.liamstewart.ca/define?word=${this.word}`;
-
             // Fetch the word definition
-            fetch(url)
+            fetch(`https://comp6062.liamstewart.ca/define?word=${this.word}`)
                 .then(response => response.json())  // Parse the response as JSON
                 .then(data => {
                     // Store the word definition data
                     if (Array.isArray(data) && data.length > 0) {
-                        // Access the first element of the array
-                        const wordData = data[0];  
-                        this.wordDefinition = {
-                            word: wordData.word,
-                            phonetic: wordData.phonetic,
-                            definition: wordData.definition,
-                        };
+                        this.wordDefinition = data;
                     } else {
                         alert("No definition found for the word.");
                         this.wordDefinition = null;  // Reset if no definition is found

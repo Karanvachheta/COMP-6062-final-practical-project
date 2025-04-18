@@ -2,6 +2,7 @@
     <html>
     <head>
         <title>Karan's Website</title>
+        <!-- Link to Bootstrap CSS for styling -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css?">
         <link rel="stylesheet" href="css/style.css">
     </head>
@@ -10,16 +11,19 @@
             <h1 class="text-center">Karan Vachheta - 1162439</h1>
         </header>
         <main>
-            
-            <div class="row">  
+            <!-- Row for user profile and word definition sections -->
+            <div class="row"> 
+                <!-- User Profile Section --> 
                 <div class="col-md-6 text-center" v-if="userProfile" id="colorPro">
                     <h2 id="profile">User Profile</h2>
                     <img :src="userProfile.profile_picture" class="rounded-circle" width="200" height="200">
                     <h5>{{ userProfile.first_name }} {{ userProfile.last_name }}</h5>
                     <p>Age: {{ userProfile.age }}</p>
+                    <!-- Button to fetch a new random profile -->
                     <button class="btn btn-primary" @click="getNewProfile">New Profile</button>
                 </div>
 
+                <!-- Word Definition Section -->
                 <div class="col-md-6 text-center" id="colorDef">
                     <h2 id="definition">Word Definition</h2>
                     <input v-model="word" type="text" placeholder="Enter a word" class="form-control">
@@ -27,13 +31,14 @@
             
                     <!-- Display the definition -->
                     <div v-if="wordDefinition">
-                        <h4>Word: {{ wordDefinition.word }}</h4>
-                        <p><strong>Phonetic:</strong> {{ wordDefinition.phonetic }}</p>
-                        <p><strong>Definition:</strong> {{ wordDefinition.definition }}</p>
+                        <h4>Word: {{ wordDefinition[0].word }}</h4>
+                        <p><strong>Phonetic:</strong> {{ wordDefinition[0].phonetic }}</p>
+                        <p><strong>Definition:</strong> {{ wordDefinition[0].definition }}</p>
                     </div>
                 </div>
             </div>
             <div id="border" ></div>
+            <!-- Row for weather information section -->
             <div class="row">
                 <div id="weather-module" class="col-md-6 text-center">
                     <h2 id="weatherInfo"> Weather Information </h2>
@@ -50,8 +55,8 @@
                     <div v-if="weather">
                         <h3>Weather in {{ city }}, {{ province }}, {{ country }}</h3>
                         <p><strong>Temperature:</strong> {{ weather.temperature }} </p>
-                        <p><strong>Wind:</strong> {{ weather.wind }} </p>
-                        <p><strong>Description:</strong> {{ weather.description }}</p>
+                        <p><strong>Wind:</strong> {{ weather.wind_speed }} </p>
+                        <p><strong>Description:</strong> {{ weather.weather_description }}</p>
                     </div>
                 </div>
             </div>
@@ -59,6 +64,7 @@
         <footer class="text-center">
             &copy; 2025 COMP-6062 Final Project. All rights reserved.
         </footer>
+        <!-- Vue.js CDN (used to create the app and bind data) -->
         <script src="https://unpkg.com/vue@3.4.31/dist/vue.global.js"></script>
         <script src="scripts/app.js"></script>
     </body>
