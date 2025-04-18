@@ -1,9 +1,12 @@
+/* Styling for header */
 header{
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: rgb(67, 62, 62);
     color: white;
 }
+
+/* Divider of section */
 #border{
     margin-top: 20px;
     border: 1px solid black;
@@ -13,14 +16,31 @@ header{
     background-color: rgb(172, 168, 168); 
 }
 
+/* Border to whole container */
+#mainBorder
+{
+    border: 3px solid black;       
+}
+
+/* Styling for Defination */
 #colorDef
 {
     background-color: #baf5d1;
+    padding: 20px;
+    height: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
+/* Styling for Profile */
 #colorPro{
     background-color: #fff3cd;
+    padding: 20px;
+    height: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
+
 #weatherInfo{
     margin-top: 20px;
     background-color: rgb(172, 168, 168);
@@ -30,12 +50,18 @@ header{
     margin-top: 12px;
 }
 
+/* Styling for weather */
 #weather-module{
     margin-top: 20px;
     margin-left: 350px;
+    padding: 20px;
+    height: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
     background-color: #a9d7d6;
 }
 
+/* Hover to all buttons */
 .btn-primary:hover {
     background-color: #74b9ff;
 }
@@ -44,17 +70,23 @@ header{
     margin-bottom: 7px;
 }
 
+/* Styling for Footer */
 footer{
     margin-top: 20px;
     background-color: rgb(67, 62, 62);
     color: white;
 }
 
+/* Styling for responsive website */
 @media (max-width: 768px) {
     #weather-module {
         margin-left: 0;
         padding: 10px;
         background-color: white;
+    }
+
+    #mainBorder{
+        border: none;
     }
 
     #colorPro, #colorDef{

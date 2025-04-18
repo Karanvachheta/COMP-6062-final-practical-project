@@ -39,11 +39,6 @@ const app = Vue.createApp({
         },
 
         getWordDefinition() {
-            // Make sure the user has entered a word
-            if (!this.word.trim()) {
-                alert("Please enter a word!");
-                return;
-            }
             // Fetch the word definition
             fetch(`https://comp6062.liamstewart.ca/define?word=${this.word}`)
                 .then(response => response.json())  // Parse the response as JSON
@@ -52,6 +47,7 @@ const app = Vue.createApp({
                     if (Array.isArray(data) && data.length > 0) {
                         this.wordDefinition = data;
                     } else {
+                        //Shows popup error if no definition found
                         alert("No definition found for the word.");
                         this.wordDefinition = null;  // Reset if no definition is found
                     }
